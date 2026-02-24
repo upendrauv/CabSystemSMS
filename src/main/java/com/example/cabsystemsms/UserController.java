@@ -1,5 +1,7 @@
 package com.example.cabsystemsms;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,11 @@ public class UserController
         return "Iam good how are you..";
     }
 
+    @GetMapping("/users")
+public List<Users> getAllUsers() 
+{
+    return this.userRepo.findAll();
+}
 
   @PostMapping("/register")
     public ResponseEntity<String> register( @RequestBody Users user) 
